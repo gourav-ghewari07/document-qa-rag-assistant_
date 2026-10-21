@@ -139,13 +139,9 @@ git init
 git add .
 git commit -m "Build document Q&A RAG assistant"
 git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/document-qa-rag-assistant.git
+git remote add origin https://github.com/gourav-ghewari07/document-qa-rag-assistant.git
 git push -u origin main
 ```
-
-Replace `YOUR-USERNAME` with your GitHub username.
-
-Before submitting, test the app locally, verify source citations, and make sure `.env`, private documents, and the generated vector database are not committed.
 
 ## Limitations and future improvements
 
