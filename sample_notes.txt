@@ -1,0 +1,22 @@
+Retrieval-Augmented Generation (RAG)
+
+Retrieval-Augmented Generation combines information retrieval with text generation. Instead of relying only on what a language model learned during training, a RAG application searches a collection of documents and supplies relevant passages to the model.
+
+A typical RAG pipeline has seven stages:
+1. Load source documents such as PDFs and text files.
+2. Split long documents into smaller chunks, often with a small overlap.
+3. Generate an embedding vector for each chunk.
+4. Store the vectors and metadata in a vector database such as ChromaDB or FAISS.
+5. Convert a user's question into a vector and retrieve similar chunks.
+6. Send the question and retrieved context to a language model.
+7. Return an answer with source citations so the user can check the evidence.
+
+Embeddings represent the semantic meaning of text as numerical vectors. Vector search can find passages that are related in meaning even when they do not use exactly the same words.
+
+Chunk size and overlap are important settings. Very large chunks may contain unrelated information, while very small chunks may lose context. Overlap helps preserve information that crosses a chunk boundary.
+
+A RAG system should not invent an answer when the source documents do not contain enough evidence. It should clearly say that the answer was not found. Citations help users verify whether the generated answer is supported by the retrieved documents.
+
+ChromaDB is a vector database that can store embeddings and metadata and perform similarity search. FAISS is another option for efficient vector similarity search.
+
+Limitations include poor text extraction from scanned PDFs, missing information in the source documents, weak retrieval, and incorrect model responses. Important information should always be checked against the original source.
